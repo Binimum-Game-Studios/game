@@ -19,7 +19,10 @@ from pygame.locals import (
 )
 
 # init pygame
-pygame.mixer.init()
+try:
+    pygame.mixer.init()
+except Exception as e:
+    print(f"Error initializing sound: {e}")
 pygame.init()
 
 # create a player
@@ -178,7 +181,10 @@ def main():
 # Once the loop is broken, cleanup and quit
 if __name__ == '__main__':
     main()
-    pygame.mixer.music.stop()
-    pygame.mixer.quit()
+    try:
+        pygame.mixer.music.stop()
+        pygame.mixer.quit()
+    except Exception as e:
+        print(f"Error shutting down sound: {e}")
     pygame.quit()
     sys.exit()
