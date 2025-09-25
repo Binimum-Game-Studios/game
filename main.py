@@ -30,9 +30,14 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
         # use image
-        self.surf = pygame.image.load("assets/jet.png").convert()
-        self.surf.set_colorkey((255, 255, 255), RLEACCEL)
-        self.surf = pygame.transform.smoothscale(self.surf, (50, 50))
+        try:
+            self.surf = pygame.image.load("assets/jet.png").convert()
+            self.surf.set_colorkey((255, 255, 255), RLEACCEL)
+            self.surf = pygame.transform.smoothscale(self.surf, (50, 50))
+        except Exception as e:
+            print(f"Warning: Could not load 'assets/jet.png': {e}. Using fallback surface.")
+            self.surf = pygame.Surface((50, 50))
+            self.surf.fill((0, 255, 0))  # bright green fallback
         self.rect = self.surf.get_rect()
 
         self.speed = 10
