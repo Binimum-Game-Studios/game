@@ -89,9 +89,14 @@ class Enemy(pygame.sprite.Sprite):
 class Cloud(pygame.sprite.Sprite):
     def __init__(self):
         super(Cloud, self).__init__()
-        self.surf = pygame.image.load("assets/cloud.jpg").convert()
-        self.surf.set_colorkey((0, 0, 0), RLEACCEL)
-        self.surf = pygame.transform.smoothscale(self.surf, (50, 50))
+        try:
+            self.surf = pygame.image.load("assets/cloud.jpg").convert()
+            self.surf.set_colorkey((0, 0, 0), RLEACCEL)
+            self.surf = pygame.transform.smoothscale(self.surf, (50, 50))
+        except Exception as e:
+            print(f"Error loading cloud image: {e}. Using fallback surface.")
+            self.surf = pygame.Surface((50, 50))
+            self.surf.fill((200, 200, 200))  # light gray fallback
         # The starting position is randomly generated
         self.rect = self.surf.get_rect(
             center=(
