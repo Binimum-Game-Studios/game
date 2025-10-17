@@ -7,17 +7,19 @@ Player
   - Attack Music
   - Sound Effects
     
-World
-  - Object Sprites
-  - Background Music
-  - Sound Effects
-  - Backgrounds
+Enviroment
+  - Actor:
+    - Sprites
+    - Sound Effects
+    - Battle:
+      - Attack Textures
+      - Attack Music
+      - Attack Sound Effects
+  - Music
+  - Backgrounds (Tiles)
 
 Menu
   - Sound Effects
   - Interface Assets
+  - Font
 
-Enemies
-  - Sprites
-  - Background Music
-  - Sound Effects
