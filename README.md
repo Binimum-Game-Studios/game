@@ -10,3 +10,7 @@ Can we please all:
 - When a change is done, use the [kanban](https://github.com/orgs/Binimum-Game-Studios/projects/1/views/1) and create a PR
 
 Many thanks
+
+## Flowchart
+
+![Flowchart.png](Flowchart.png)
